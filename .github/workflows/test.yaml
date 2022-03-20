@@ -1,0 +1,37 @@
+name: Test action using test data
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-get-property:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Get property
+        id: get-property
+        uses: ./
+        with:
+          file: test-data/basic.properties
+          property: foo
+      - name: Verify correct value
+        if: steps.get-property.outputs.value != 'bar'
+        run: |
+          exit 1
+  test-no-newline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Get property
+        id: get-property
+        uses: ./
+        with:
+          file: test-data/no-newline.properties
+          property: foo
+      - name: Verify correct value
+        if: steps.get-property.outputs.value != 'bar'
+        run: |
+          exit 1

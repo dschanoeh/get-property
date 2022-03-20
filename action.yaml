@@ -1,0 +1,20 @@
+name: Get Property
+description: Retrieves a single property from a Java .properties file
+branding:
+  icon: 'edit'
+  color: 'yellow'
+inputs:
+  file:
+    description: The path to the properties file
+    required: true
+  property:
+    description: The property key to be used
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - read
+    - "${{ inputs.property }}"
+    - --file
+    - "${{ inputs.file }}"
