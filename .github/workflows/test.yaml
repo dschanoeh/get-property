@@ -35,3 +35,48 @@ jobs:
         if: steps.get-property.outputs.value != 'bar'
         run: |
           exit 1
+  test-multiline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Get property
+        id: get-property
+        uses: ./
+        with:
+          file: test-data/basic.properties
+          property: multiline
+      - name: Verify correct value
+        if: steps.get-property.outputs.value != 'foobar'
+        run: |
+          exit 1
+  test-duplicate-key:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Get property
+        id: get-property
+        uses: ./
+        with:
+          file: test-data/basic.properties
+          property: duplicateKey
+      - name: Verify correct value
+        if: steps.get-property.outputs.value != 'second'
+        run: |
+          exit 1
+  test-escaping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Get property
+        id: get-property
+        uses: ./
+        with:
+          file: test-data/basic.properties
+          property: escaping
+      - name: Verify correct value
+        if: steps.get-property.outputs.value != 'foo\bar'
+        run: |
+          exit 1
