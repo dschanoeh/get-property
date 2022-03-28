@@ -82,3 +82,18 @@ jobs:
         if: steps.get-property.outputs.value != 'foo\bar'
         run: |
           exit 1
+  test-colon:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Get property
+        id: get-property
+        uses: ./
+        with:
+          file: test-data/basic.properties
+          property: colon
+      - name: Verify correct value
+        if: steps.get-property.outputs.value != 'colon'
+        run: |
+          exit 1
