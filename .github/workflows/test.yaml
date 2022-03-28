@@ -2,6 +2,8 @@ name: Test action using test data
 
 on:
   push:
+    branches:
+      - main
   pull_request:
 
 jobs:
