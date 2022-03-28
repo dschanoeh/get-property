@@ -26,7 +26,7 @@ The property value that was read from the file.
 ```
 - name: Get property
   id: get-property
-  uses: dschanoeh/get-property@v1.0.0
+  uses: dschanoeh/get-property@v1
   with:
     file: my.properties
     property: foo
