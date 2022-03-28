@@ -4,6 +4,8 @@
 
 This is a GitHub Action to retrieve a single property from a [Java .properties files](https://en.wikipedia.org/wiki/.properties).
 
+A matching action to change a property can be found [here](https://github.com/dschanoeh/change-property).
+
 
 ## Inputs
 
