@@ -1,4 +1,4 @@
-FROM dschanoeh/props:0.1.0 as props
+FROM dschanoeh/props:1.0.0 as props
 
 FROM alpine:latest
 COPY --from=props /props /usr/bin/props
