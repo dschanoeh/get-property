@@ -10,6 +10,9 @@ inputs:
   property:
     description: The property key to be used
     required: true
+outputs:
+  value:
+    description: The value of the property
 runs:
   using: 'docker'
   image: 'Dockerfile'

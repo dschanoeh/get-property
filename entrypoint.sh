@@ -1,5 +1,5 @@
-#!/bin/sh -l
+#!/bin/sh
 set -euo pipefail
 
 value=$(props "$@")
-echo "::set-output name=value::$value"
+echo "value=$value" >> $GITHUB_OUTPUT
